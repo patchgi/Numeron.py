@@ -21,14 +21,32 @@ def createNum(_num,_m,_M):
 	return data
 
 if __name__=="__main__":
-	
-	haveNum=createNum(SCALE,0,9)
+
+	while(True):
+		numData=[]
+		go=False
+		haveNum=raw_input()
+		if haveNum!=None:
+			if int(len(haveNum))==SCALE:
+				for i in range(SCALE):
+					 numData.append(haveNum.count(haveNum[i]))
+				if numData==[1,1,1,1]:
+					tmp=haveNum
+					haveNum=[]
+					for i in tmp:
+						haveNum.append(int(i))
+
+					break;
+				else:
+					print "Syntax Error"
+			else:
+				print "Syntax Error"
+
 	ehaveNum=createNum(SCALE,0,9)
 	eHitList=[]
 	eBiteList=[]
 
-	print haveNum
-	print ehaveNum
+
 	while (True):
 		time.sleep(1)
 		if turn:
@@ -92,3 +110,9 @@ if __name__=="__main__":
 				break
 			turnCount+=1
 			turn =not turn
+
+	if turn:
+		print "You Win!!!"
+
+	else:
+		print "You Lose..."
